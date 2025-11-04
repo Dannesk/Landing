@@ -1,6 +1,6 @@
 {
   "version": "0.5.0",
-  "windows_url": "https://download.dannesk.com/Dannesk-0.5.0-x86_64-pc-windows-msvc.zip",
+  "windows_url": "https://download.dannesk.com/Dannesk-Install.exe",
   "macos_url": "https://pub-5f379ad98ab24168a96f3d1a3699dc82.r2.dev/Dannesk-0.5.0-x86_64-apple-darwin.dmg",
   "linux_url": "https://pub-5f379ad98ab24168a96f3d1a3699dc82.r2.dev/Dannesk-0.5.0-x86_64-linux-gnu.tar.gz"
 }

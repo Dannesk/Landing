@@ -6,10 +6,10 @@ export default function PrivacyModal({ isOpen, onClose }) {
 
   return ReactDOM.createPortal(
     <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-      <div className="bg-neutral-900 rounded-lg p-8 max-w-2xl w-full text-neutral-200 relative">
+      <div className="bg-cyan-50  border border-cyan-100 rounded-lg p-8 max-w-2xl w-full text-neutral-800 relative">
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-neutral-400 hover:text-neutral-100"
+          className="absolute top-3 right-3 text-neutral-900"
         >
           ✕
         </button>

@@ -9,18 +9,17 @@ const Cstorage = () => {
   return (
     <div className="relative h-screen flex items-center justify-center bg-gradient-to-l from-[#0a0a0a] via-[#2a2a2a] to-black opacity-95 flex-col overflow-hidden">
       <div className="w-full px-6 sm:w-1/2 text-center relative z-10">
-        <h2 className="text-5xl font-sans font-bold mb-6 leading-snug text-neutral-100 mt-20">
+        <h2 className="text-5xl font-sans font-bold mb-6 leading-snug text-cyan-50 mt-20">
           Key Management
         </h2>
         <p className="text-neutral-400 mb-12 mt-4 text-lg font-sans font-light">
-          For enhanced control, you can{" "}
+          For enhanced control, you can  remove your{" "}     
           <span
             onClick={() => setShowEnclave(true)}
-            className="underline cursor-pointer text-neutral-300 hover:text-neutral-100 font-medium font-sans"
+            className="underline cursor-pointer text-cyan-100 hover:text-cyan-200  font-medium font-sans"
           >
-            remove your key
-          </span>{" "}
-          as needed.
+        <strong>Private Key</strong>
+          </span>
         </p>
       </div>
 

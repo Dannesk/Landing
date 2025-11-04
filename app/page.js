@@ -26,7 +26,7 @@ const App = () => {
               width="40"
               height="40"
               fill="none"
-              stroke="lime"
+              stroke="cyan"
               strokeWidth="1"
             />
           </pattern>

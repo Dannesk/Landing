@@ -10,10 +10,10 @@ const EnclaveModal = ({ isOpen, onClose }) => {
       role="dialog"
       aria-modal="true"
     >
-      <div className="bg-[#111] border border-gray-700 rounded-md p-8 max-w-xl w-full text-gray-300 font-mono relative">
+      <div className="bg-cyan-50 border border-cyan-100 rounded-lg p-8 max-w-xl w-full text-gray-800 font-mono relative">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-white transition"
+          className="absolute top-4 right-4 text-gray-900 hover:text-white transition"
           aria-label="Close modal"
         >
           ✕
@@ -24,20 +24,17 @@ const EnclaveModal = ({ isOpen, onClose }) => {
         <p className="mb-4 font-sans">
           On supported devices, your encrypted key is stored in a tamper-resistant hardware enclave —
           isolated from the operating system, and system memory.
-          These enclaves are engineered to withstand physical extraction, including advanced side-channel attacks.
+          These enclaves are engineered to withstand physical extraction, including advanced side-channel attacks. For those who prefer cold storage, you may delete your key from the device with one-click.
         </p>
 
         <p className="mb-4 font-sans">
-          Never store your passphrase on the same device.
+          Never store your encrypted passphrase on the same device as your key.
           Without your passphrase , an attacker is left with a{" "}
           <code>2<sup>256</sup></code>-sized keyspace — about{" "}
           <code>10<sup>77</sup></code> possibilities.
         </p>
 
-        <p className="mb-4 font-sans">
-          If you're a high-value target, consider deleting your key when not actively using the app.
-          You can easily re-import it the next time you launch.
-        </p>
+    
       </div>
     </div>,
     document.body
