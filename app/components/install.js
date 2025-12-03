@@ -39,7 +39,7 @@ const InstallModal = ({ isOpen, onClose }) => {
                 ✅
               </td>
               <td className="py-2 px-3">
-Download and run <code>Dannesk-Install.exe</code>. Windows will show a SmartScreen warning due to self-signed certificate—click {"More info > Run anyway"}.
+Download and run <code>Dannesk-Install.exe</code>. Windows may show a SmartScreen warning due to self-signed certificate—click {"More info > Run anyway"}.
               </td>
             </tr>
 

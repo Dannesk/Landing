@@ -35,25 +35,23 @@ const Rust = () => {
         </svg>
       </div>
 
-      {/* AES Section */}
-      <section className="relative h-screen flex items-center justify-center flex-col px-6 sm:px-0 sm:w-1/2 mx-auto text-center -mt-20 z-10">
-        <h2 className="text-5xl font-sans font-bold mb-6 leading-snug text-cyan-50">
-          State-of-the-Art Security.
-        </h2>
-        <p className="text-neutral-400 mb-12 mt-4 text-lg font-light font-sans">
-        
-            Zero Knowledge
-    
-          . End-to-End Encryption.{" "}
-          <span
-            onClick={() => setShowAES(true)}
-            className="underline cursor-pointer text-cyan-100 hover:text-cyan-200 font-medium font-sans"
-          >
-            <strong>AES-256</strong>
-          </span>
-          .
-        </p>
-      </section>
+  {/* AES Section */}
+<section className="relative h-screen flex items-center justify-center flex-col px-6 sm:px-0 sm:w-1/2 mx-auto text-center -mt-20 z-10">
+  <h2 className="text-5xl font-sans font-bold mb-6 leading-snug text-cyan-50">
+    State-of-the-Art Security.
+  </h2>
+
+  <p className="text-neutral-400 mb-12 mt-4 text-lg font-light font-sans">
+    Zero Knowledge.{" "}
+    <span
+      onClick={() => setShowAES(true)}
+      className="underline cursor-pointer text-cyan-100 hover:text-cyan-200 font-medium font-sans"
+    >
+      AES-256 Encryption
+    </span>{" "}
+    with support for a BIP-39 “25th word” — an optional passphrase that adds an extra layer of security.
+  </p>
+</section>
 
       {/* Swap Icon SVG */}
       <div className="relative z-20 w-full flex justify-center -mt-20">

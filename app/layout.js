@@ -7,7 +7,6 @@ export const metadata = {
   title: "Dannesk",
   description: "An open source DeFi app built in Rust.",
   keywords: ["DeFi", "Rust", "open source", "blockchain", "XRP", "desktop app", "BTC", "Bitcoin", "RLUSD", "EUROP"],
-  authors: [{ name: "Cian Ruaidhri" }],
   applicationName: "Dannesk",
   generator: "Next.js",
   openGraph: {

@@ -91,7 +91,7 @@ const FaqModal = ({ isOpen, onClose }) => {
                 Blockbook has a few quirks, especially under load.
               </td>
               <td className="py-2 px-3">
-                If you're out of sync, reimport your wallet.
+                In rare cases where you're out of sync, reimport your wallet.
               </td>
             </tr>
             <tr>
@@ -126,7 +126,7 @@ const FaqModal = ({ isOpen, onClose }) => {
     <tr>
       <td className="py-2 px-3 font-semibold">Encryption</td>
       <td className="py-2 px-3" colSpan={2}>
-        All stored keys are protected with{" "}
+        Client storage is protected with{" "}
         <strong>AES-256</strong> — a symmetric cipher with{" "}
         <code>2<sup>256</sup></code> possible combinations (~10<sup>77</sup>),
         making brute-force attacks implausible.
@@ -135,7 +135,7 @@ const FaqModal = ({ isOpen, onClose }) => {
     <tr>
       <td className="py-2 px-3 font-semibold">Hardware Enclave</td>
       <td className="py-2 px-3" colSpan={2}>
-        On supported devices, encrypted keys are isolated in a
+        By default encrypted keys are isolated in a
         tamper-resistant hardware enclave, shielded from the OS and
         system memory. This prevents physical and side-channel attacks.
       </td>
@@ -143,20 +143,30 @@ const FaqModal = ({ isOpen, onClose }) => {
     <tr>
       <td className="py-2 px-3 font-semibold">Cold Storage</td>
       <td className="py-2 px-3" colSpan={2}>
-        Users can delete their key from the device entirely with one click.
-        Transactions can still be signed directly with the seed, meaning the
-        private key never resides on the device or in memory. This offers
-        a true cold storage option for maximum security.
+        Users may choose to delete their encrypted key from the device entirely with one click.
+        This offers a true cold storage option for maximum security.
       </td>
     </tr>
     <tr>
       <td className="py-2 px-3 font-semibold">Best Practices</td>
       <td className="py-2 px-3" colSpan={2}>
-        Never store your encrypted passphrase on the same device as your
+        Never store your passphrase or 25th word on the same device as your
         encrypted key. Without your passphrase, an attacker faces a{" "}
-        <code>2<sup>256</sup></code>-sized keyspace.
+        <code>2<sup>256</sup></code>-sized keyspace. And without the 25th word, even if the mnemonic was somehow decrypted, the attacker would still fail.
       </td>
     </tr>
+   <tr>
+  <td className="py-2 px-3 font-semibold">25th Word vs Passphrase</td>
+  <td className="py-2 px-3" colSpan={2}>
+    ⚠️ The <strong>BIP39 25th word</strong> should never be identical to your
+    passphrase. If they are the same and your passphrase is compromised,
+    you effectively lose an entire layer of protection. Treat the 25th word
+    and passphrase as <em>independent secrets</em> to maintain full security
+    separation.
+    
+  </td>
+</tr>
+    
   </tbody>
 </table>
 

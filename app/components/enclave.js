@@ -22,19 +22,19 @@ const EnclaveModal = ({ isOpen, onClose }) => {
         <h2 className="text-2xl font-semibold mb-4">Managing Keys</h2>
 
         <p className="mb-4 font-sans">
-          On supported devices, your encrypted key is stored in a tamper-resistant hardware enclave —
-          isolated from the operating system, and system memory.
-          These enclaves are engineered to withstand physical extraction, including advanced side-channel attacks. For those who prefer cold storage, you may delete your key from the device with one-click.
+          On supported devices, your encrypted key is stored inside a tamper-resistant hardware enclave —
+          isolated from both the operating system and system memory.
+          These secure enclaves are designed to resist physical extraction, including sophisticated side-channel attacks.  
+          For users who prefer cold storage, you can remove your key from the device with a single click.
+          This design choice gives the user the most flexibility. 
         </p>
 
         <p className="mb-4 font-sans">
-          Never store your encrypted passphrase on the same device as your key.
-          Without your passphrase , an attacker is left with a{" "}
-          <code>2<sup>256</sup></code>-sized keyspace — about{" "}
-          <code>10<sup>77</sup></code> possibilities.
+          Never store your passphrase on the same device as your encrypted key.
+          Without your passphrase, an attacker faces a{" "}
+          <code>2<sup>256</sup></code>-sized keyspace — roughly{" "}
+          <code>10<sup>77</sup></code> possible combinations. 
         </p>
-
-    
       </div>
     </div>,
     document.body

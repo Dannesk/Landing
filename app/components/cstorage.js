@@ -13,7 +13,7 @@ const Cstorage = () => {
           Key Management
         </h2>
         <p className="text-neutral-400 mb-12 mt-4 text-lg font-sans font-light">
-          For enhanced control, you can  remove your{" "}     
+          Complete Control over your{" "}     
           <span
             onClick={() => setShowEnclave(true)}
             className="underline cursor-pointer text-cyan-100 hover:text-cyan-200  font-medium font-sans"
