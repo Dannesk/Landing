@@ -53,11 +53,7 @@ const ReleaseModal = ({ isOpen, onClose }) => {
               <td className="py-2 px-3">🔧 In Dev</td>
               <td className="py-2 px-3">Replace-By-Fee support</td>
             </tr>
-            <tr>
-              <td className="py-2 px-3">SendMax (XRPL)</td>
-              <td className="py-2 px-3">🔧 In Dev</td>
-              <td className="py-2 px-3">Choose send amount vs limit price</td>
-            </tr>
+           
             <tr>
               <td className="py-2 px-3">Mobile App</td>
               <td className="py-2 px-3">🔧 In Dev</td>

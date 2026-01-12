@@ -75,50 +75,14 @@ const FaqModal = ({ isOpen, onClose }) => {
           </tbody>
         </table>
 
-        {/* --- Known Issues Section --- */}
-        <table className="w-full mb-8 border-collapse text-left text-sm">
-          <thead>
-            <tr className="border-b border-gray-400 text-gray-900">
-              <th className="py-2 px-3 w-1/4">Known Issues</th>
-              <th className="py-2 px-3 font-semibold">Issue</th>
-              <th className="py-2 px-3 font-semibold">Notes</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-300">
-            <tr>
-              <td className="py-2 px-3 font-semibold">Blockbook</td>
-              <td className="py-2 px-3">
-                Blockbook has a few quirks, especially under load.
-              </td>
-              <td className="py-2 px-3">
-                In rare cases where you're out of sync, reimport your wallet.
-              </td>
-            </tr>
-            <tr>
-              <td className="py-2 px-3 font-semibold">Mempool</td>
-              <td className="py-2 px-3">Choose your fee wisely.</td>
-              <td className="py-2 px-3">
-                Otherwise it may sit in mempool for hours, even days.
-              </td>
-            </tr>
-            <tr>
-              <td className="py-2 px-3 font-semibold">Latency</td>
-              <td className="py-2 px-3">Our servers are in Singapore.</td>
-              <td className="py-2 px-3">
-                For example, latency is about 290 ms slower from NYC, 20 ms from
-                Bangkok, and ~220 ms from Germany.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
+    
      {/* --- Security Section --- */}
 <table className="w-full mb-8 border-collapse text-left text-sm">
   <thead>
     <tr className="border-b border-gray-400 text-gray-900">
       <th className="py-2 px-3 w-1/4">Security</th>
       <th className="py-2 px-3 font-semibold" colSpan={2}>
-        Overview
+        Best Practices
       </th>
     </tr>
   </thead>
@@ -132,31 +96,18 @@ const FaqModal = ({ isOpen, onClose }) => {
         making brute-force attacks implausible.
       </td>
     </tr>
+    
+    
     <tr>
-      <td className="py-2 px-3 font-semibold">Hardware Enclave</td>
-      <td className="py-2 px-3" colSpan={2}>
-        By default encrypted keys are isolated in a
-        tamper-resistant hardware enclave, shielded from the OS and
-        system memory. This prevents physical and side-channel attacks.
-      </td>
-    </tr>
-    <tr>
-      <td className="py-2 px-3 font-semibold">Cold Storage</td>
-      <td className="py-2 px-3" colSpan={2}>
-        Users may choose to delete their encrypted key from the device entirely with one click.
-        This offers a true cold storage option for maximum security.
-      </td>
-    </tr>
-    <tr>
-      <td className="py-2 px-3 font-semibold">Best Practices</td>
+      <td className="py-2 px-3 font-semibold">Passphrase</td>
       <td className="py-2 px-3" colSpan={2}>
         Never store your passphrase or 25th word on the same device as your
         encrypted key. Without your passphrase, an attacker faces a{" "}
-        <code>2<sup>256</sup></code>-sized keyspace. And without the 25th word, even if the mnemonic was somehow decrypted, the attacker would still fail.
+        <code>2<sup>256</sup></code>-sized keyspace. 
       </td>
     </tr>
    <tr>
-  <td className="py-2 px-3 font-semibold">25th Word vs Passphrase</td>
+  <td className="py-2 px-3 font-semibold">Layered Security</td>
   <td className="py-2 px-3" colSpan={2}>
     ⚠️ The <strong>BIP39 25th word</strong> should never be identical to your
     passphrase. If they are the same and your passphrase is compromised,
@@ -188,18 +139,8 @@ const FaqModal = ({ isOpen, onClose }) => {
                 </a>.
               </td>
             </tr>
-            <tr>
-              <td className="py-2 px-3 font-semibold">Contact</td>
-              <td className="py-2 px-3" colSpan={2}>
-                Signal: <span className="font-semibold">@dannesk.01</span>
-              </td>
-            </tr>
-            <tr>
-              <td className="py-2 px-3 font-semibold">Our Fees</td>
-              <td className="py-2 px-3" colSpan={2}>
-                We don’t charge fees.
-              </td>
-            </tr>
+            
+           
           </tbody>
         </table>
       </div>
