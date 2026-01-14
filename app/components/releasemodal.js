@@ -30,12 +30,12 @@ const ReleaseModal = ({ isOpen, onClose }) => {
             <tr>
               <td className="py-2 px-3">XRP & BTC Wallets</td>
               <td className="py-2 px-3">✅ Available</td>
-              <td className="py-2 px-3">Import or create wallets securely</td>
+              <td className="py-2 px-3">Import or create wallets</td>
             </tr>
             <tr>
               <td className="py-2 px-3">DEX (RLUSD, EURO)</td>
               <td className="py-2 px-3">✅ Available</td>
-              <td className="py-2 px-3">Trade XRP ↔ stable tokens directly</td>
+              <td className="py-2 px-3">Trade XRP ↔ stable tokens</td>
             </tr>
             <tr>
               <td className="py-2 px-3">Desktop App</td>
@@ -51,7 +51,7 @@ const ReleaseModal = ({ isOpen, onClose }) => {
             <tr>
               <td className="py-2 px-3">RBF for BTC</td>
               <td className="py-2 px-3">🔧 In Dev</td>
-              <td className="py-2 px-3">Replace-By-Fee support</td>
+              <td className="py-2 px-3">Replace-By-Fee</td>
             </tr>
            
             <tr>

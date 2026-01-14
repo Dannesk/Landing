@@ -38,30 +38,12 @@ const EnclaveModal = ({ isOpen, onClose }) => {
           </p>
 
           <p>
-            On supported systems the encrypted key is stored inside a{" "}
-            <strong className="text-gray-900">hardware-backed secure enclave</strong>, isolated from the
-            operating system and application memory.
-          </p>
-
-          <p>
-            Regardless of platform, the key remains protected by{" "}
-            <strong className="text-gray-900">AES-256 encryption</strong>. 
-          </p>
-
-          <p>
             For users who prefer maximum isolation, you can{" "}
-            <strong className="text-gray-900">remove the encrypted key from the device entirely</strong>.
-            This effectively converts the wallet into cold storage.
-          </p>
-
-          <p>
-            In this mode, transactions can still be signed — but only by rentering your{" "}
+            <strong className="text-gray-900">remove the encrypted key </strong>from the device entirely.
+            This effectively converts the wallet into cold storage. Transactions can still be signed — but only by rentering your{" "}
             <strong className="text-gray-900">mnemonic</strong>.
           </p>
 
-          <p>
-            This allows maximum control: hot wallet when you want it. Cold when you don’t.
-          </p>
 
         
         </div>

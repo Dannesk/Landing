@@ -11,7 +11,7 @@ const Rust = () => {
       
       {/* Rust Section */}
       <section className="relative h-screen flex items-center justify-center flex-col px-6 sm:px-0 sm:w-2/3 lg:w-1/2 mx-auto text-center z-10">
-        <h2 className="text-5xl md:text-6xl font-sans font-bold mb-6 leading-tight text-cyan-50">
+        <h2 className="text-5xl md:text-5xl font-sans font-semibold mb-6 text-cyan-50">
           Built with Rust.
         </h2>
         {/* Increased font size and line height */}
@@ -39,7 +39,7 @@ const Rust = () => {
 
       {/* AES Section */}
       <section className="relative h-screen flex items-center justify-center flex-col px-6 sm:px-0 sm:w-2/3 lg:w-1/2 mx-auto text-center -mt-20 z-10">
-        <h2 className="text-5xl md:text-6xl font-sans font-bold mb-6 leading-tight text-cyan-50">
+        <h2 className="text-5xl md:text-5xl font-sans font-semibold mb-6 text-cyan-50">
           State-of-the-Art Security
         </h2>
 
@@ -71,7 +71,7 @@ const Rust = () => {
 
       {/* DEX Section */}
       <section className="relative h-screen flex items-center justify-center flex-col px-6 sm:px-0 sm:w-2/3 lg:w-1/2 mx-auto text-center -mt-20 z-10">
-        <h2 className="text-5xl md:text-6xl font-sans font-bold mb-6 leading-tight text-cyan-50 mt-20">
+        <h2 className="text-5xl md:text-5xl font-sans font-semibold mb-6 text-cyan-50">
           Trustless Swaps
         </h2>
         <p className="text-neutral-400 mb-12 mt-4 text-xl md:text-2xl font-light font-sans leading-relaxed">

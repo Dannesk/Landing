@@ -54,14 +54,14 @@ const HeroSection = () => {
         
         {/* Left Column (Text) */}
         <div className="flex flex-col text-cyan-50 z-10">
-          <h1 className="text-7xl md:text-8xl font-bold mb-6 font-sans">
-            Dannesk
-          </h1>
+         <h1 className="text-7xl md:text-7xl font-bold mb-4 font-sans">
+  Dannesk
+</h1>
 
-          <p className="text-lg max-w-md mb-12 leading-relaxed font-sans text-neutral-300">
-            Hold multi-currency tokens, make payments and swaps for a fraction of a cent, and/or borrow using Bitcoin as collateral. 
-            Currently supporting XRP, RLUSD, EUROP and BTC.
-          </p>
+{/* Tagline */}
+<p className="text-neutral-400 mb-12 mt-4 text-xl md:text-2xl font-light font-sans leading-relaxed">
+  Building decentralized rails for a permissionless world — no surveillance, no censorship, no middlemen. 
+</p>
 
           {/* Supported Assets */}
 <div className="flex items-center gap-6 mb-10">
