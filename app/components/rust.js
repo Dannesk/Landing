@@ -11,9 +11,9 @@ const Rust = () => {
       
       {/* Rust Section */}
       <section className="relative h-screen flex items-center justify-center flex-col px-6 sm:px-0 sm:w-2/3 lg:w-1/2 mx-auto text-center z-10">
-        <h2 className="text-5xl md:text-5xl font-sans font-semibold mb-6 text-cyan-50">
-          Built with Rust.
-        </h2>
+      <h2 className="text-5xl md:text-5xl font-sans font-semibold mb-6 text-cyan-50">
+  Built with <span className="text-neutral-300 font-medium">Rust</span>.
+</h2>
         {/* Increased font size and line height */}
         <p className="text-neutral-400 text-xl md:text-2xl font-light font-sans leading-relaxed">
           Designed from the ground up for{" "}
@@ -39,15 +39,15 @@ const Rust = () => {
 
       {/* AES Section */}
       <section className="relative h-screen flex items-center justify-center flex-col px-6 sm:px-0 sm:w-2/3 lg:w-1/2 mx-auto text-center -mt-20 z-10">
-        <h2 className="text-5xl md:text-5xl font-sans font-semibold mb-6 text-cyan-50">
-          State-of-the-Art Security
-        </h2>
+       <h2 className="text-5xl md:text-5xl font-sans font-semibold mb-6 text-cyan-50">
+  State-of-the-Art <span className="text-neutral-300 font-medium">Security</span>
+</h2>
 
         <p className="text-neutral-400 mb-12 mt-4 text-xl md:text-2xl font-light font-sans leading-relaxed">
           Zero Knowledge.{" "}
           <span
             onClick={() => setShowAES(true)}
-            className="underline cursor-pointer text-cyan-100 hover:text-cyan-200 font-medium font-sans"
+            className="underline cursor-pointer font-medium font-sans"
           >
             AES-256 Encryption.
           </span>{" "}
@@ -72,8 +72,8 @@ const Rust = () => {
       {/* DEX Section */}
       <section className="relative h-screen flex items-center justify-center flex-col px-6 sm:px-0 sm:w-2/3 lg:w-1/2 mx-auto text-center -mt-20 z-10">
         <h2 className="text-5xl md:text-5xl font-sans font-semibold mb-6 text-cyan-50">
-          Trustless Swaps
-        </h2>
+  Trustless <span className="text-neutral-300 font-medium">Swaps</span>
+</h2>
         <p className="text-neutral-400 mb-12 mt-4 text-xl md:text-2xl font-light font-sans leading-relaxed">
           Swap stabelcoins for a fraction of a cent{" "}
          

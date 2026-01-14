@@ -5,7 +5,7 @@ const AES256Modal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
-    <div className="fixed inset-0 z-50 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center px-4">
+    <div className="fixed inset-0 z-50 bg-opacity-70 backdrop-blur-sm flex items-center justify-center px-4">
       <div
         className="
           bg-cyan-50 border border-cyan-100 rounded-lg

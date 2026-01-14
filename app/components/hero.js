@@ -19,15 +19,8 @@ const HeroSection = () => {
     },
   ];
 
-  const assets = [
-  { name: "Bitcoin", src: "/images/btc.svg" },
-  { name: "XRP", src: "/images/xrp.svg" },
-  { name: "RLUSD", src: "/images/rlusd.svg" },
-  { name: "EUROP", src: "/images/europ.svg" },
-];
-
   return (
-    <div className="min-h-screen w-full relative bg-gradient-to-r from-[#0a0a0a] via-[#2a2a2a] to-black opacity-95 flex items-center justify-center">
+    <div className="min-h-screen w-full relative bg-gradient-to-r from-[#0a0a0a] via-[#2a2a2a] to-black opacity-95 flex items-center justify-center overflow-hidden">
       {/* Modals */}
       <ReleaseModal isOpen={isReleaseOpen} onClose={() => setIsReleaseOpen(false)} />
       <InstallModal isOpen={isWindowsOpen} onClose={() => setIsWindowsOpen(false)} />
@@ -49,39 +42,22 @@ const HeroSection = () => {
         </a>
       </nav>
 
-      {/* Content Wrapper - Centered and Max Width */}
-      <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-7xl px-8 md:px-16 items-center">
-        
+      {/* Content Wrapper */}
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full items-center px-10 md:px-20 lg:px-32 xl:px-48 2xl:px-64">        
         {/* Left Column (Text) */}
         <div className="flex flex-col text-cyan-50 z-10">
-         <h1 className="text-7xl md:text-7xl font-bold mb-4 font-sans">
-  Dannesk
-</h1>
+          {/* Title Section with Kinetic Tracking */}
+          <h1 className="text-8xl font-bold mb-4 font-sans tracking-tight hover:tracking-widest transition-all duration-1000 ease-in-out cursor-default select-none">
+            Dannesk<span className="text-gray-500">.</span>
+          </h1>
 
-{/* Tagline */}
-<p className="text-neutral-400 mb-12 mt-4 text-xl md:text-2xl font-light font-sans leading-relaxed">
-  Building decentralized rails for a permissionless world — no surveillance, no censorship, no middlemen. 
-</p>
-
-          {/* Supported Assets */}
-<div className="flex items-center gap-6 mb-10">
-  {assets.map((asset) => (
-    <div
-      key={asset.name}
-      className="flex items-center justify-center w-6 h-6 opacity-80 hover:opacity-100 transition-opacity"
-      title={asset.name}
-    >
-      <img
-        src={asset.src}
-        alt={asset.name}
-        className="w-full h-full object-contain"
-      />
-    </div>
-  ))}
-</div>
+          {/* Tagline */}
+          <p className="text-neutral-400 mb-12 mt-4 text-xl md:text-2xl font-light font-sans leading-relaxed max-w-lg">
+            We're building <span className="text-neutral-300 font-medium">decentralized rails</span> for a permissionless world — no surveillance, no censorship, no middlemen. 
+          </p>
 
           <div className="flex flex-wrap gap-6">
-            {platforms.map(({ name, icon, url }, i) => (
+           {platforms.map(({ name, icon, url }, i) => (
               <div key={i} className="flex flex-col items-center">
                 <a
                   href={url}
@@ -99,36 +75,57 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right Column (SVG) */}
-        <div className="hidden md:flex justify-end items-center">
-          <svg
-            width="450"
-            height="450"
-            viewBox="0 0 200 200"
-            xmlns="http://www.w3.org/2000/svg"
-            className="drop-shadow-2xl"
-          >
-            <polygon
-              points="100,30 160,65 160,135 100,170 40,135 40,65"
-              stroke="#ECFEFF"
-              strokeWidth="6"
-              fill="#222222"
-            />
-            <polygon
-              points="100,60 140,100 100,140 60,100"
-              stroke="#ECFEFF"
-              strokeWidth="4"
-              fill="#222222"
-            />
-            <line x1="100" y1="30" x2="100" y2="60" stroke="#ECFEFF" strokeWidth="2" />
-            <line x1="160" y1="65" x2="140" y2="100" stroke="#ECFEFF" strokeWidth="2" />
-            <line x1="160" y1="135" x2="140" y2="100" stroke="#ECFEFF" strokeWidth="2" />
-            <line x1="100" y1="170" x2="100" y2="140" stroke="#ECFEFF" strokeWidth="2" />
-            <line x1="40" y1="135" x2="60" y2="100" stroke="#ECFEFF" strokeWidth="2" />
-            <line x1="40" y1="65" x2="60" y2="100" stroke="#ECFEFF" strokeWidth="2" />
-          </svg>
+        {/* Right Column (Kinetic SVG) */}
+        <div className="hidden md:flex justify-end items-center group">
+          <div className="relative transition-transform duration-1000 group-hover:scale-105 group-hover:rotate-2">
+            <svg
+              width="450"
+              height="450"
+              viewBox="0 0 200 200"
+              xmlns="http://www.w3.org/2000/svg"
+              className="drop-shadow-[0_0_30px_rgba(236,254,255,0.15)] animate-[pulse_6s_infinite_ease-in-out]"
+            >
+              {/* Outer Hexagon */}
+              <polygon
+                points="100,30 160,65 160,135 100,170 40,135 40,65"
+                stroke="#ECFEFF"
+                strokeWidth="2"
+                fill="#222222"
+                fillOpacity="0.4"
+                className="transition-all duration-700 group-hover:stroke-cyan-300"
+              />
+              {/* Inner Diamond */}
+              <polygon
+                points="100,60 140,100 100,140 60,100"
+                stroke="#ECFEFF"
+                strokeWidth="1.5"
+                fill="#111111"
+                className="transition-all duration-1000 group-hover:fill-neutral-800"
+              />
+              {/* Connecting Lines with kinetic dash animation potential */}
+              <g className="stroke-cyan-50/50" strokeWidth="1">
+                <line x1="100" y1="30" x2="100" y2="60" />
+                <line x1="160" y1="65" x2="140" y2="100" />
+                <line x1="160" y1="135" x2="140" y2="100" />
+                <line x1="100" y1="170" x2="100" y2="140" />
+                <line x1="40" y1="135" x2="60" y2="100" />
+                <line x1="40" y1="65" x2="60" y2="100" />
+              </g>
+            </svg>
+            
+            {/* Subtle Glow Effect behind SVG */}
+            <div className="absolute inset-0 bg-cyan-500/5 blur-[100px] rounded-full -z-10 group-hover:bg-cyan-500/10 transition-colors duration-1000" />
+          </div>
         </div>
       </div>
+
+      {/* Tailwind Custom Animation (Add to your global CSS or tailwind.config.js if pulse isn't enough) */}
+      <style jsx global>{`
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 1; transform: translateY(0); }
+          50% { opacity: 0.8; transform: translateY(-10px); }
+        }
+      `}</style>
     </div>
   );
 };
