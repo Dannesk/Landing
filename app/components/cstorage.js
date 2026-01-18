@@ -18,7 +18,7 @@ const Cstorage = () => {
         <p className="text-neutral-400 mb-12 mt-4 text-xl md:text-2xl font-sans font-light leading-relaxed">
           Choose how your  <span
             onClick={() => setShowEnclave(true)}
-            className="underline cursor-pointer font-medium font-sans"
+            className="underline cursor-pointer text-cyan-300  font-medium font-sans"
           >
             <strong>Private Key</strong>
           </span> is stored{" "}

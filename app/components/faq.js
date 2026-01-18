@@ -5,144 +5,90 @@ const FaqModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
-    <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center px-4">
+    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center px-4">
       <div
         className="
-          bg-cyan-50 border border-cyan-100 rounded-lg 
-          p-8 max-w-3xl w-full font-sans text-sm text-gray-900 relative shadow-lg
-          max-h-[90vh] overflow-y-auto
+          bg-zinc-900 border border-zinc-800 rounded-none
+          p-8 md:p-12 max-w-5xl w-full text-zinc-300
+          relative shadow-[0_0_50px_rgba(6,182,212,0.1)]
+          max-h-[90vh] overflow-y-auto font-mono
         "
       >
+        {/* Terminal Header Decoration */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-cyan-500/20">
+          <div className="h-full bg-cyan-500 w-1/5" />
+        </div>
+
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-900 hover:text-white transition"
-          aria-label="Close FAQ"
+          className="absolute top-6 right-6 text-zinc-500 hover:text-cyan-500 transition-colors"
         >
-          ✕
+          [Close]
         </button>
 
-        {/* --- Blockchain Comparison Table --- */}
-        <table className="w-full mb-8 border-collapse text-left text-sm">
-          <thead>
-            <tr className="border-b border-gray-400 text-gray-900">
-              <th className="py-2 px-3 w-1/4">Blockchain</th>
-              <th className="py-2 px-3 font-semibold">XRPL</th>
-              <th className="py-2 px-3 font-semibold">Bitcoin</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-300">
-            <tr>
-              <td className="py-2 px-3 font-semibold">Fees</td>
-              <td className="py-2 px-3">
-                Fraction of a cent per transaction — usually less than{" "}
-                <strong>$0.001</strong>.
-              </td>
-              <td className="py-2 px-3">
-                Recommended minimum: <strong>300 satoshis</strong> to avoid mempool drops.
-              </td>
-            </tr>
-            <tr>
-              <td className="py-2 px-3 font-semibold">Tokens</td>
-              <td className="py-2 px-3">
-                <strong>XRP</strong> (native), plus issued tokens like{" "}
-                <strong>RLUSD</strong> and <strong>EUROP</strong>.
-              </td>
-              <td className="py-2 px-3">
-                <strong>BTC</strong> only (native asset).
-              </td>
-            </tr>
-            <tr>
-              <td className="py-2 px-3 font-semibold">Trading & Liquidity</td>
-              <td className="py-2 px-3">
-                On-chain — all liquidity comes from decentralized order books.
-              </td>
-              <td className="py-2 px-3">NA</td>
-            </tr>
-            <tr>
-              <td className="py-2 px-3 font-semibold">Speed</td>
-              <td className="py-2 px-3">~3–5 seconds per transaction.</td>
-              <td className="py-2 px-3">~10 minutes average block time.</td>
-            </tr>
-            <tr>
-              <td className="py-2 px-3 font-semibold">Security Model</td>
-              <td className="py-2 px-3">
-                Consensus via trusted validators — fast finality.
-              </td>
-              <td className="py-2 px-3">
-                Proof-of-Work — highly secure, slower as a result.
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <h2 className="text-2xl md:text-3xl font-bold mb-10 text-gray-100 uppercase tracking-tighter">
+          Network Protocols
+        </h2>
 
-    
-     {/* --- Security Section --- */}
-<table className="w-full mb-8 border-collapse text-left text-sm">
-  <thead>
-    <tr className="border-b border-gray-400 text-gray-900">
-      <th className="py-2 px-3 w-1/4">Security</th>
-      <th className="py-2 px-3 font-semibold" colSpan={2}>
-        Best Practices
-      </th>
-    </tr>
-  </thead>
-  <tbody className="divide-y divide-gray-300">
-    <tr>
-      <td className="py-2 px-3 font-semibold">Encryption</td>
-      <td className="py-2 px-3" colSpan={2}>
-        Client storage is protected with{" "}
-        <strong>AES-256</strong> — a symmetric cipher with{" "}
-        <code>2<sup>256</sup></code> possible combinations (~10<sup>77</sup>),
-        making brute-force attacks implausible.
-      </td>
-    </tr>
-    
-    
-    <tr>
-      <td className="py-2 px-3 font-semibold">Passphrase</td>
-      <td className="py-2 px-3" colSpan={2}>
-        Never store your passphrase or 25th word on the same device as your
-        encrypted key. Without your passphrase, an attacker faces a{" "}
-        <code>2<sup>256</sup></code>-sized keyspace. 
-      </td>
-    </tr>
-   <tr>
-  <td className="py-2 px-3 font-semibold">Layered Security</td>
-  <td className="py-2 px-3" colSpan={2}>
-    ⚠️ The <strong>BIP39 25th word</strong> should never be identical to your
-    passphrase. If they are the same and your passphrase is compromised,
-    you effectively lose an entire layer of protection. Treat the 25th word
-    and passphrase as <em>independent secrets</em> to maintain full security
-    separation.
-    
-  </td>
-</tr>
-    
-  </tbody>
-</table>
+        <div className="space-y-10">
+          {/* --- Blockchain Comparison Table --- */}
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="border-b border-zinc-800 text-cyan-700 uppercase text-sm tracking-[0.2em]">
+                  <th className="py-4 px-3 w-1/4">Metric</th>
+                  <th className="py-4 px-3">XRPL</th>
+                  <th className="py-4 px-3">Bitcoin</th>
+                </tr>
+              </thead>
+              <tbody className="text-base md:text-lg divide-y divide-zinc-800/50">
+                <tr className="hover:bg-cyan-950/5 transition-colors">
+                  <td className="py-6 px-3 font-bold text-gray-100">Average Fees</td>
+                  <td className="py-6 px-3">
+                    ~0.00001 XRP <br/>
+                    <span className="text-sm text-zinc-500 tracking-tight">(Under $0.001 USD)</span>
+                  </td>
+                  <td className="py-6 px-3">
+                    Variable <br/>
+                    <span className="text-sm text-zinc-500 tracking-tight">(300+ sats recommended)</span>
+                  </td>
+                </tr>
+                <tr className="hover:bg-cyan-950/5 transition-colors">
+                  <td className="py-6 px-3 font-bold text-gray-100">Settlement</td>
+                  <td className="py-6 px-3 text-cyan-500">3–5 Seconds</td>
+                  <td className="py-6 px-3 text-zinc-400">~10 Minutes (Avg)</td>
+                </tr>
+                <tr className="hover:bg-cyan-950/5 transition-colors">
+                  <td className="py-6 px-3 font-bold text-gray-100">Asset Support</td>
+                  <td className="py-6 px-3">
+                    Multi-Token <br/>
+                    <span className="text-sm text-zinc-500">(XRP, RLUSD, EURO)</span>
+                  </td>
+                  <td className="py-6 px-3">
+                    Native <br/>
+                    <span className="text-sm text-zinc-500">(BTC Only)</span>
+                  </td>
+                </tr>
+                <tr className="hover:bg-cyan-950/5 transition-colors">
+                  <td className="py-6 px-3 font-bold text-gray-100">Liquidity</td>
+                  <td className="py-6 px-3">Native DEX</td>
+                  <td className="py-6 px-3">N/A</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-
-        {/* --- General Section --- */}
-        <table className="w-full border-collapse text-left text-sm">
-          <tbody className="divide-y divide-gray-300">
-            <tr>
-              <td className="py-2 px-3 font-semibold w-1/4">Open source</td>
-              <td className="py-2 px-3" colSpan={2}>
-                You can review or contribute on{" "}
-                <a
-                  href="https://github.com/niminypiminy/Dannesk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-cyan-800 hover:text-cyan-900 underline"
-                >
-                  GitHub
-                </a>.
-              </td>
-            </tr>
+          {/* --- Footer / Open Source --- */}
+          <div className="pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-zinc-500 text-sm italic">
+              "Cypherpunks write code"
+            </p>
+            <div className="flex items-center gap-8">
+              
             
-           
-          </tbody>
-        </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>,
     document.body

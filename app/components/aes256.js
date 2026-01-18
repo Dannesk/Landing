@@ -5,69 +5,63 @@ const AES256Modal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
-    <div className="fixed inset-0 z-50 bg-opacity-70 backdrop-blur-sm flex items-center justify-center px-4">
+    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center px-4">
       <div
         className="
-          bg-cyan-50 border border-cyan-100 rounded-lg
-          p-8 md:p-10 max-w-2xl w-full text-gray-800
-          relative shadow-2xl
-          max-h-[90vh] overflow-y-auto
+          bg-zinc-900 border border-zinc-800 rounded-none
+          p-8 md:p-12 max-w-5xl w-full text-zinc-300
+          relative shadow-[0_0_50px_rgba(6,182,212,0.1)]
+          max-h-[90vh] overflow-y-auto font-mono
         "
       >
+        {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 transition-colors text-xl"
-          aria-label="Close modal"
+          className="absolute top-6 right-6 text-zinc-500 hover:text-cyan-500 transition-colors"
+          aria-label="Close"
         >
-          ✕
+          [ESC]
         </button>
 
-        <h2 className="text-3xl md:text-4xl font-sans font-bold mb-6 text-gray-900">
-          AES-256 Encryption
+        <h2 className="text-2xl md:text-3xl font-bold mb-10 text-gray-100 uppercase tracking-tighter">
+          Cryptographic Sovereignty
         </h2>
 
-        <div className="space-y-6 text-lg md:text-xl font-sans text-gray-700 leading-relaxed">
-          <p>
-            When stored client-side, your keys are protected with{" "}
-            <strong className="text-gray-900">AES-256</strong>, a symmetric cipher with an astronomical keyspace of{" "}
-            <code className="bg-cyan-100 px-1 rounded text-base font-mono">
-              2<sup>256</sup>
-            </code>{" "}
-            — roughly{" "}
-            <code className="bg-cyan-100 px-1 rounded text-base font-mono">
-              1.15 × 10<sup>77</sup>
-            </code>{" "}
-            possible combinations.
-          </p>
+        {/* Increased base text size to text-lg and adjusted spacing */}
+        <div className="space-y-10 text-lg leading-relaxed">
+          
+          <section className="space-y-4">
+            <h3 className="text-gray-100 font-bold uppercase text-sm tracking-widest text-cyan-700">
+              Protocol: AES-256-GCM
+            </h3>
+            <p>
+              Local state is encrypted via AES-256. With <span className="text-cyan-500 font-bold">2^256</span> possible keys, the energy required to brute-force your wallet would exceed the thermal output of the sun.
+            </p>
+          </section>
 
-          <p>
-            To put this in perspective: there are about{" "}
-            <code className="bg-cyan-100 px-1 rounded text-base font-mono">
-              10<sup>80</sup>
-            </code>{" "}
-            atoms in the observable universe. Brute-forcing AES-256 is therefore not merely impractical —
-            it is effectively impossible within the lifetime of the universe.
-          </p>
+          <section className="border-l-2 border-cyan-900/50 pl-6 py-2 bg-cyan-950/10 space-y-4">
+            <h3 className="text-gray-100 font-bold uppercase text-sm tracking-widest text-cyan-700">
+              Feature: BIP-39 Passphrase
+            </h3>
+            <p>
+              We support the <span className="text-cyan-500">"25th Word."</span> This is never cached, never stored, and only exists in your head. 
+            </p>
+          </section>
 
-          <p>
-            This app also supports the optional{" "}
-            <strong className="text-gray-900">BIP-39 passphrase</strong>, sometimes called a{" "}
-            <em>“25th word.”</em> This passphrase is{" "}
-            <strong className="text-gray-900">never stored</strong> and is not included in the standard 24-word mnemonic.
-          </p>
+          <div className="border-t border-zinc-800 pt-8">
+            <p className="italic text-zinc-500 text-base">
+              "Privacy is necessary for an open society in the electronic age... We the Cypherpunks are dedicated to building anonymous systems." — Eric Hughes
+            </p>
+          </div>
 
-          <p>
-            Under BIP-39, your mnemonic and passphrase are combined to derive your wallet keys.
-            Changing the passphrase — even slightly — produces an{" "}
-            <strong className="text-gray-900">entirely different wallet</strong>, with completely unrelated addresses and balances.
-          </p>
-
-          <p>
-            This means a single mnemonic can deterministically generate{" "}
-            <strong className="text-gray-900">an unlimited number of independent wallets</strong>, each unlocked by a different passphrase.
-          </p>
-
-        
+          <div className="flex justify-end pt-4">
+            <button 
+              onClick={onClose}
+              className="bg-cyan-600 hover:bg-cyan-500 text-black font-bold py-3 px-12 transition-all uppercase text-sm tracking-widest"
+            >
+              Acknowledge
+            </button>
+          </div>
         </div>
       </div>
     </div>,

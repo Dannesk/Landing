@@ -47,7 +47,7 @@ const Rust = () => {
           Zero Knowledge.{" "}
           <span
             onClick={() => setShowAES(true)}
-            className="underline cursor-pointer font-medium font-sans"
+            className="underline cursor-pointer text-cyan-300 font-medium font-sans"
           >
             AES-256 Encryption.
           </span>{" "}

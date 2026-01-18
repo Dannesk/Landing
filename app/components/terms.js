@@ -6,7 +6,7 @@ const TermsModal = ({ isOpen, onClose }) => {
 
   return ReactDOM.createPortal(
     <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center px-4">
-      <div className="bg-cyan-50 border border-cyan-100 rounded-lg p-8 max-w-xl w-full text-neutral-800 font-mono relative max-h-[90vh] overflow-y-auto">
+      <div className="bg-cyan-50 border border-cyan-100 rounded-lg p-8 max-w-5xl text-neutral-800 font-mono relative max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-900 "

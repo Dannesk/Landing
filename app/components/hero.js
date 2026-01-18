@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaWindows, FaGithub } from "react-icons/fa";
+import { FaWindows, FaGithub, FaLinux } from "react-icons/fa";
 import ReleaseModal from "./releasemodal";
-import InstallModal from "./install";
 import FaqModal from "./faq";
 
 const HeroSection = () => {
@@ -17,22 +16,23 @@ const HeroSection = () => {
       icon: <FaWindows size={36} />,
       url: "https://download.dannesk.com/Dannesk-Install.exe",
     },
+     {
+    name: "linux (.deb)",
+    icon: <FaLinux size={36} />,
+    url: "https://download.dannesk.com/dannesk_0.5.0_amd64.deb", // or .deb / .tar.gz
+  },
   ];
 
   return (
     <div className="min-h-screen w-full relative bg-gradient-to-r from-[#0a0a0a] via-[#2a2a2a] to-black opacity-95 flex items-center justify-center overflow-hidden">
       {/* Modals */}
       <ReleaseModal isOpen={isReleaseOpen} onClose={() => setIsReleaseOpen(false)} />
-      <InstallModal isOpen={isWindowsOpen} onClose={() => setIsWindowsOpen(false)} />
       <FaqModal isOpen={isFaqOpen} onClose={() => setIsFaqOpen(false)} />
 
       {/* Nav */}
       <nav className="fixed top-6 right-8 z-50 flex space-x-6 text-neutral-400 text-md">
         <button onClick={() => setIsReleaseOpen(true)} className="font-extralight hover:text-gray-200 transition-colors font-mono duration-200">
           v0.5.0
-        </button>
-        <button onClick={() => setIsWindowsOpen(true)} className="font-extralight hover:text-gray-200 transition-colors font-mono duration-200">
-          Installation Notes
         </button>
         <button onClick={() => setIsFaqOpen(true)} className="font-extralight hover:text-gray-200 transition-colors font-mono duration-200">
           FAQ
@@ -47,7 +47,8 @@ const HeroSection = () => {
         {/* Left Column (Text) */}
         <div className="flex flex-col text-cyan-50 z-10">
           {/* Title Section with Kinetic Tracking */}
-          <h1 className="text-8xl font-bold mb-4 font-sans tracking-tight hover:tracking-widest transition-all duration-1000 ease-in-out cursor-default select-none">
+          <h1 className="text-8xl font-bold mb-4 font-sans tracking-tight hover:tracking-[0.03em]
+ transition-all duration-1000 ease-in-out cursor-default select-none">
             Dannesk<span className="text-gray-500">.</span>
           </h1>
 
@@ -66,14 +67,80 @@ const HeroSection = () => {
                   className="w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center rounded-md border border-neutral-300 text-neutral-300 hover:shadow-md hover:border-[#222222] transition-transform transform hover:-translate-y-1 hover:scale-105 duration-300"
                 >
                   <div>{icon}</div>
-                  <span className="text-xs font-mono text-neutral-300 mt-1">
+<span className="text-xs font-mono text-neutral-300 mt-1">
                     {name.toLowerCase()}
                   </span>
                 </a>
               </div>
             ))}
           </div>
+ {/* Verification links */}
+<div className="mt-4 space-y-1 text-[11px] font-mono text-neutral-500">
+
+  {/* Windows verification */}
+  <div className="flex items-center gap-2">
+    <span className="text-neutral-600">windows:</span>
+
+    <a
+      href="https://github.com/niminypiminy/Dannesk/blob/main/dannesk.cert.pem"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-neutral-300 transition-colors"
+    >
+      certificate
+    </a>
+
+    <span className="text-neutral-700">·</span>
+
+    <a
+      href="https://github.com/niminypiminy/Dannesk#verifying-windows-builds"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-neutral-300 transition-colors"
+    >
+      verify
+    </a>
+  </div>
+
+  {/* Linux verification */}
+  <div className="flex items-center gap-2">
+    <span className="text-neutral-600">linux:</span>
+
+    <a
+      href="https://github.com/niminypiminy/Dannesk/blob/main/SHASUMS256.txt"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-neutral-300 transition-colors"
+    >
+      sha256
+    </a>
+
+    <span className="text-neutral-700">·</span>
+
+    <a
+      href="https://github.com/niminypiminy/Dannesk/blob/main/SHASUMS256.txt.asc"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-neutral-300 transition-colors"
+    >
+      signature
+    </a>
+
+    <span className="text-neutral-700">·</span>
+
+    <a
+      href="https://github.com/niminypiminy/Dannesk/blob/main/dannesk.pub"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-neutral-300 transition-colors"
+    >
+      public key
+    </a>
+  </div>
+</div>
+
         </div>
+        
 
         {/* Right Column (Kinetic SVG) */}
         <div className="hidden md:flex justify-end items-center group">
