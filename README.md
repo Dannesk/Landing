@@ -1,11 +1,21 @@
-<p align="center">
-  <a href="https://github.com/yourname/app-windows">
-    <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" />
-  </a>
-  <a href="https://github.com/yourname/app-linux">
-    <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
-  </a>
-  <a href="https://github.com/yourname/app-macos">
-    <img src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white" />
-  </a>
-</p
+<svg width="220" height="120" viewBox="0 0 220 120"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <rect x="1" y="1" width="218" height="118"
+        rx="14"
+        fill="#ffffff"
+        stroke="#d0d7de"
+        stroke-width="2"/>
+
+  <text
+    x="110"
+    y="70"
+    text-anchor="middle"
+    font-size="18"
+    fill="#24292f"
+    font-family="Segoe UI, Helvetica, Arial, sans-serif"
+    font-weight="600">
+    Windows
+  </text>
+
+</svg>
