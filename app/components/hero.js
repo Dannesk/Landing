@@ -37,7 +37,7 @@ const HeroSection = () => {
         <button onClick={() => setIsFaqOpen(true)} className="font-extralight hover:text-gray-200 transition-colors font-mono duration-200">
           FAQ
         </button>
-        <a href="https://github.com/niminypiminy/Dannesk" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 transition-colors duration-200" title="View source on GitHub">
+        <a href="https://github.com/Dannesk/Dannesk" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 transition-colors duration-200" title="View source on GitHub">
           <FaGithub size={20} />
         </a>
       </nav>
@@ -82,7 +82,7 @@ const HeroSection = () => {
     <span className="text-neutral-600">windows:</span>
 
     <a
-      href="https://github.com/niminypiminy/Dannesk/blob/main/dannesk.cert.pem"
+      href="https://github.com/Dannesk/Dannesk/blob/main/dannesk.cert.pem"
       target="_blank"
       rel="noopener noreferrer"
       className="hover:text-neutral-300 transition-colors"
@@ -93,7 +93,7 @@ const HeroSection = () => {
     <span className="text-neutral-700">·</span>
 
     <a
-      href="https://github.com/niminypiminy/Dannesk#verifying-windows-builds"
+      href="https://github.com/Dannesk"
       target="_blank"
       rel="noopener noreferrer"
       className="hover:text-neutral-300 transition-colors"
@@ -107,7 +107,7 @@ const HeroSection = () => {
     <span className="text-neutral-600">linux:</span>
 
     <a
-      href="https://github.com/niminypiminy/Dannesk/blob/main/SHASUMS256.txt"
+      href="https://github.com/Dannesk/Dannesk/blob/main/SHASUMS256.txt"
       target="_blank"
       rel="noopener noreferrer"
       className="hover:text-neutral-300 transition-colors"
@@ -118,7 +118,7 @@ const HeroSection = () => {
     <span className="text-neutral-700">·</span>
 
     <a
-      href="https://github.com/niminypiminy/Dannesk/blob/main/SHASUMS256.txt.asc"
+      href="https://github.com/Dannesk/Dannesk/blob/main/SHASUMS256.txt.asc"
       target="_blank"
       rel="noopener noreferrer"
       className="hover:text-neutral-300 transition-colors"
@@ -129,7 +129,7 @@ const HeroSection = () => {
     <span className="text-neutral-700">·</span>
 
     <a
-      href="https://github.com/niminypiminy/Dannesk/blob/main/dannesk.pub"
+      href="https://github.com/Dannesk/Dannesk/blob/main/dannesk.pub"
       target="_blank"
       rel="noopener noreferrer"
       className="hover:text-neutral-300 transition-colors"
