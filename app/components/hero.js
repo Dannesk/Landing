@@ -45,16 +45,16 @@ const HeroSection = () => {
       {/* Content Wrapper */}
       <div className="grid grid-cols-1 md:grid-cols-2 w-full items-center px-10 md:px-20 lg:px-32 xl:px-48 2xl:px-64">        
         {/* Left Column (Text) */}
-        <div className="flex flex-col text-cyan-50 z-10">
+        <div className="flex flex-col text-cyan-100 z-10">
           {/* Title Section with Kinetic Tracking */}
           <h1 className="text-8xl font-bold mb-4 font-sans tracking-tight hover:tracking-[0.03em]
  transition-all duration-1000 ease-in-out cursor-default select-none">
-            Dannesk<span className="text-gray-500">.</span>
+            Dannesk<span className="text-cyan-200">.</span>
           </h1>
 
           {/* Tagline */}
           <p className="text-neutral-400 mb-12 mt-4 text-xl md:text-2xl font-light font-sans leading-relaxed max-w-lg">
-            We're building <span className="text-neutral-300 font-medium">decentralized rails</span> for a permissionless world — no surveillance, no censorship, no middlemen. 
+            We're building <span className="text-cyan-100 font-medium">decentralized rails</span> for a permissionless world — no surveillance, no censorship, no middlemen. 
           </p>
 
           <div className="flex flex-wrap gap-6">
@@ -64,10 +64,10 @@ const HeroSection = () => {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-20 h-20 md:w-24 md:h-24 flex flex-col items-center justify-center rounded-md border border-neutral-300 text-neutral-300 hover:shadow-md hover:border-[#222222] transition-transform transform hover:-translate-y-1 hover:scale-105 duration-300"
+                  className="w-24 h-24 flex flex-col items-center justify-center rounded-md border border-neutral-300 text-neutral-300 hover:shadow-md hover:border-[#222222] transition-transform transform hover:-translate-y-1 hover:scale-105 duration-300"
                 >
                   <div>{icon}</div>
-<span className="text-xs font-mono text-neutral-300 mt-1">
+<span className="text-xs font-mono text-neutral-300 mt-1 text-center">
                     {name.toLowerCase()}
                   </span>
                 </a>
