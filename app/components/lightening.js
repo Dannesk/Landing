@@ -3,146 +3,183 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+// Terminal Reveal: No "zoom", just a sudden data-entry feel
+const terminalReveal = {
+  hidden: { opacity: 0, y: 15 },
+  show: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.3, 
+      ease: "linear", 
+    } 
+  },
 };
 
-  const assets = [
-  { name: "Bitcoin", src: "/images/btc.svg" },
-  { name: "XRP", src: "/images/xrp.svg" },
-  { name: "RLUSD", src: "/images/rlusd.svg" },
-  { name: "EUROP", src: "/images/europ.svg" },
+const assets = [
+  { name: "BTC", label: "BITCOIN", src: "/images/btc.svg" },
+  { name: "XRP", label: "XRPL", src: "/images/xrp.svg" },
+  { name: "RLUSD", label: "RLUSD", src: "/images/rlusd.svg" },
+  { name: "EUROP", label: "EUROP", src: "/images/europ.svg" },
 ];
+
+// Dioxus-style Indicator for Features
+const TerminalIndicator = ({ label, value, active = true }) => (
+  <div className="flex items-center font-mono text-[11px] tracking-widest uppercase">
+    <span className="text-neutral-700 opacity-40">[</span>
+    <span className={active ? "text-white" : "text-neutral-500"}>{active ? ":" : "."}</span>
+    <span className="text-[#737373] px-2">{label}</span>
+    <span className="text-white font-bold">{value}</span>
+    <span className={active ? "text-white" : "text-neutral-500"}>{active ? ":" : "."}</span>
+    <span className="text-neutral-700 opacity-40">]</span>
+  </div>
+);
 
 const Lightning = () => {
   return (
-    <div className="relative min-h-[200vh] bg-gradient-to-l from-[#0a0a0a] via-[#2a2a2a] to-black opacity-95">
-      {/* Wallet Section Refactor */}
+    <div className="relative bg-[#0a0a0a] text-[#e5e5e5] font-mono selection:bg-white/10 border-t border-[#262626]">
+      {/* Subtle Scanline Effect Overlay */}
+      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,255,0.02))] z-50 bg-[length:100%_2px,3px_100%]" />
+
+      <div className="relative z-10 max-w-5xl mx-auto px-6 py-32 space-y-64">
+        
+        {/* Section 1: Wallet - The "Multi-Currency" Manifest */}
+        <motion.section
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={terminalReveal}
+          className="flex flex-col items-start"
+        >
+          {/* Section 1 fix */}
+          <div className="text-[12px] text-[#737373] mb-4 tracking-[0.3em] font-bold">
+            {" >> "} MODULE: VAULT_SYSTEM
+          </div>
+          <h2 className="text-4xl md:text-6xl font-medium tracking-tighter mb-8 leading-none">
+            NON-CUSTODIAL<br/>
+            <span className="text-white border-b-2 border-white/10">MULTI-CURRENCY</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end w-full">
+            <p className="text-[#737373] text-lg max-w-md leading-relaxed">
+              Hold native assets, execute swaps for a fraction of a cent, and leverage Bitcoin as collateral.
+            </p>
+            <div className="flex flex-wrap gap-2 border border-[#262626] p-4 bg-[#141414]/30">
+              {assets.map((asset) => (
+                <div key={asset.name} className="flex items-center gap-2 px-3 py-1 border border-[#262626] text-[10px] text-white bg-[#0a0a0a]">
+                  <img src={asset.src} alt="" className="w-3.5 h-3.5" />
+                  {asset.label}
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Section 2: Speed - The "Lightning" Logic */}
 <motion.section
-  variants={fadeIn}
   initial="hidden"
   whileInView="show"
-  viewport={{ once: true, amount: 0.4 }}
-  className="h-screen flex items-center justify-center px-6"
+  viewport={{ once: true }}
+  variants={terminalReveal}
+  className="flex flex-col items-end text-right"
 >
-  <div className="w-full sm:w-2/3 lg:w-1/2 text-center flex flex-col items-center">
-    <h2 className="text-5xl md:text-5xl font-sans font-semibold mb-6 text-cyan-50">
-      A <span className="text-neutral-300 font-medium">non-custodial</span>,{" "}
-      <span className="text-neutral-300 font-medium">multi-currency</span> wallet.
-    </h2>
-
-    <p className="text-neutral-400 text-xl md:text-2xl font-light font-sans leading-relaxed mb-12">
-      Hold{" "}
-      <span className="text-neutral-300 font-medium">multi-currency tokens</span>, 
-      make payments and swaps for{" "}
-      <span className="text-neutral-300 font-medium">a fraction of a cent</span>, 
-      and borrow using{" "}
-      <span className="text-neutral-400 font-medium">Bitcoin as collateral</span>.
+  <div className="text-[12px] text-[#737373] mb-4 tracking-[0.3em] font-bold">
+    {" >> "} BLOCKCHAIN: XRPL_MAINNET
+  </div>
+  <h2 className="text-4xl md:text-6xl font-medium tracking-tighter mb-8 leading-none italic">
+    LIGHTNING_FAST<br/>
+    <span className="text-white">FINALITY</span>
+  </h2>
+  
+  <div className="max-w-md space-y-6">
+    <p className="text-[#737373] text-lg leading-relaxed">
+      Engineered for global liquidity. Experience near-instant settlement 
+      via <span className="text-white border-b border-white/20">Federated Consensus</span>. 
+      Transfer any issued currency in 
+      <span className="text-white font-bold px-2 underline decoration-white/20 underline-offset-4">3-5 SECONDS</span>.
     </p>
+    
+    <div className="flex flex-col gap-3 items-end">
+      <TerminalIndicator label="PROTOCOL" value="XRPL_L1" />
+      <TerminalIndicator label="TPS_CAPACITY" value="1500+" />
+      <TerminalIndicator label="AVG_COST" value="<0.00001_XRP" />
+      <TerminalIndicator label="CONSENSUS" value="UNL_VALIDATION" />
+    </div>
 
-    {/* Small Asset Footer - Clean, Full Color, Small scale */}
-    <div className="flex items-center gap-5 px-6 py-3 bg-white/[0.03] border border-white/[0.08] rounded-full backdrop-blur-sm">
-      <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mr-2 border-r border-white/10 pr-4">
-        Supported
-      </span>
-      {assets.map((asset) => (
-        <div key={asset.name} className="flex items-center justify-center">
-          <img
-            src={asset.src}
-            alt={asset.name}
-            className="w-5 h-5 object-contain transition-transform duration-300 hover:scale-110"
-            title={asset.name}
-          />
-        </div>
-      ))}
+    {/* New "System Log" style detail */}
+    <div className="text-[10px] text-[#404040] font-mono mt-8 border-r-2 border-[#262626] pr-4">
+      [LOG]: NATIVE_DEX_INTEGRATION_ACTIVE <br/>
+      [LOG]: CLOB_DETERMINISTIC_SETTLEMENT_ENABLED <br/>
     </div>
   </div>
 </motion.section>
 
-      {/* Key Icon */}
-      <div className="relative z-20 w-full flex justify-center -mt-20">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="128"
-          height="128"
-          viewBox="0 0 64 64"
-          fill="#d4d4d4"
-          className="mx-auto mb-8 opacity-50 pointer-events-none select-none"
-          aria-hidden="true"
+{/* Section 3: Bitcoin - The "Collateral" Layer */}
+<motion.section
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  variants={terminalReveal}
+  className="flex flex-col items-start text-left"
+>
+  <div className="text-[12px] text-[#737373] mb-4 tracking-[0.3em] font-bold">
+    {" >> "} BLOCKCHAIN: BITCOIN_MAINNET
+  </div>
+  <h2 className="text-4xl md:text-6xl font-medium tracking-tighter mb-8 leading-none">
+    HARD_MONEY<br/>
+    <span className="text-white">COLLATERAL</span>
+  </h2>
+  
+  <div className="max-w-md space-y-6">
+    <p className="text-[#737373] text-lg leading-relaxed">
+      The ultimate store of value. Secure your wealth on the most 
+      battle-tested network. Use your BTC as <span className="text-white border-b border-white/20">Prime Collateral</span>
+      —coming soon.
+    </p>
+    
+    <div className="flex flex-col gap-3 items-start">
+      <TerminalIndicator label="ADDRESS_TYPE" value="NATIVE_SEGWIT_BC1" />
+      <TerminalIndicator label="ENTROPY" value="24_WORDS" />
+      <TerminalIndicator label="PASSPHRASE" value="BIP39_OPTIONAL" />
+    </div>
+
+    {/* Updated System Log for BTC specs */}
+    <div className="text-[10px] text-[#404040] font-mono mt-8 border-l-2 border-[#262626] pl-4">
+      [LOG]: BIP39_25TH_WORD_PROTECTION_READY <br/>
+      [LOG]: BECH32_ENCODING_VALIDATED <br/>
+      [LOG]: COLLATERAL_MODULE_INITIALIZING...
+    </div>
+  </div>
+</motion.section>
+        {/* Section 3: Security - The "Private" Clause */}
+        <motion.section
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={terminalReveal}
+          className="flex flex-col items-center text-center py-20 border-y border-dashed border-[#262626]"
         >
-          <circle cx="32" cy="24" r="14" />
-          <rect x="30" y="36" width="4" height="16" rx="1" />
-          <rect x="26" y="44" width="8" height="4" rx="1" />
-        </svg>
+          <h2 className="text-5xl md:text-8xl font-black tracking-tighter mb-8 uppercase leading-[0.9]">
+            Your Keys.<br />
+            Your Coins.<br />
+            <span className="opacity-40">Your Rules.</span>
+          </h2>
+          <div className="flex gap-8 mt-4">
+             <div className="h-px w-12 bg-[#737373] self-center" />
+             <p className="font-mono text-[11px] text-[#737373] uppercase tracking-[0.2em]">
+               DECENTRALIZED ZERO_KNOWLEDGE
+             </p>
+             <div className="h-px w-12 bg-[#737373] self-center" />
+          </div>
+        </motion.section>
+
       </div>
 
-      {/* Lightning Section */}
-      <motion.section
-        variants={fadeIn}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.4 }}
-        className="relative h-screen flex items-center justify-center flex-col px-6 sm:px-0 sm:w-2/3 lg:w-1/2 mx-auto text-center z-10"
-      >
-        <h2 className="text-5xl md:text-5xl font-sans font-semibold mb-6 text-cyan-50">
-         L<span className="text-neutral-300 font-medium">ightning fast</span> transfers.
-        </h2>
-        <p className="text-neutral-400 mb-12 mt-4 text-xl md:text-2xl font-light font-sans leading-relaxed">
-          Seamless transactions with{" "}
-          <span className="text-neutral-400 font-medium font-sans">
-            near instant finality
-          </span>{" "}
-          — transfer{" "}
-          <span className="text-neutral-300 font-medium font-sans">
-            U.S. Dollars
-          </span>{" "}
-          and{" "}
-          <span className="text-neutral-300 font-medium font-sans">
-            Euro
-          </span>{" "}
-          for a fraction of a cent, worldwide, in{" "}
-          <span className="text-neutral-400 font-medium font-mono">
-            3–5 seconds
-          </span>
-          .
-        </p>
-      </motion.section>
-
-      {/* SVG bridge (Lightning Bolt) */}
-      <div className="relative z-20 w-full flex justify-center -mt-20">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="128"
-          height="128"
-          viewBox="0 0 64 64"
-          fill="#d4d4d4"
-          className="pointer-events-none select-none opacity-50"
-          aria-hidden="true"
-        >
-          <path d="M32 2L12 36h16l-4 26L52 28H36l4-26H32z" />
-        </svg>
+      {/* Background Decor: The "Grid" Lines */}
+      <div className="absolute inset-0 flex justify-between px-20 pointer-events-none opacity-20">
+        <div className="w-px h-full bg-[#262626]" />
+        <div className="w-px h-full bg-[#262626]" />
+        <div className="hidden md:block w-px h-full bg-[#262626]" />
       </div>
-
-      {/* Security Section */}
-      <motion.section
-        variants={fadeIn}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.4 }}
-        className="relative h-screen flex items-center justify-center flex-col px-6 sm:px-0 sm:w-2/3 lg:w-1/2 mx-auto text-center -mt-20 z-10"
-      >
-        <h2 className="text-5xl md:text-5xl font-sans font-semibold mb-6 text-cyan-50">
-          Your <span className="text-neutral-300 font-medium">Keys</span>. Your <span className="text-neutral-300 font-medium">Coins</span>. Your <span className="text-neutral-300 font-medium">Rules</span>.
-        </h2>
-        <p className="text-neutral-400 mt-4 text-xl md:text-2xl font-sans font-light leading-relaxed">
-          Unlike centralized exchanges,{" "}
-          <span className="text-neutral-300 font-medium font-sans">
-            we do not have access
-          </span>{" "}
-          to your private keys.
-        </p>
-      </motion.section>
     </div>
   );
 };

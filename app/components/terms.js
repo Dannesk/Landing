@@ -1,84 +1,91 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
+const TERMS_DATA = [
+  { id: "01", label: "SEED_RESPONSIBILITY", text: "You retain sole ownership of your recovery phrase (seed). We maintain zero access to your private keys. Loss of keys results in the permanent loss of digital assets." },
+  { id: "02", label: "NETWORK_DISCLAIMER", text: "Protocol availability, data integrity, and transaction finality are governed by decentralized consensus. We exert no control over blockchain state transitions." },
+  { id: "03", label: "ASSET_GOVERNANCE", text: "Stablecoins and pegged assets are managed by independent entities. This interface facilitates interaction but provides no custody or oversight of third-party liabilities." },
+  { id: "04", label: "LIQUIDITY_SETTLEMENT", text: "The DEX interface is a visual terminal for peer-to-peer liquidity. Settlement is atomic and irreversible. We provide no brokerage or market-making services." },
+  { id: "05", label: "SERVICE_CONTINUITY", text: "We strive for maximum uptime but cannot guarantee uninterrupted access. In the event of interface failure, users may access their funds via any compatible provider." }
+];
+
 const TermsModal = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    if (!isOpen) return;
+
+    const handleEsc = (e) => e.key === "Escape" && onClose();
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleEsc);
+
+    return () => {
+      document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [isOpen, onClose]);
+
+  if (!mounted || !isOpen) return null;
 
   return ReactDOM.createPortal(
-    <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center px-4">
-      <div
-        className="
-          bg-zinc-900 border border-cyan-900/30
-          p-8 md:p-10 max-w-5xl w-full
-          text-zinc-300 relative
-          shadow-[0_0_80px_rgba(6,182,212,0.05)]
-          max-h-[90vh] overflow-y-auto
-          font-sans
-        "
-      >
-        <button
-          onClick={onClose}
-          className="absolute top-5 right-5 text-zinc-500 hover:text-red-500 transition-colors"
-        >
-          ✕
-        </button>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 font-mono">
+      {/* Backdrop */}
+      <div className="fixed inset-0 bg-black/90 backdrop-blur-sm" onClick={onClose} />
 
-        <h2 className="text-xl md:text-2xl font-semibold text-zinc-100 mb-4">
-          Terms of Use
-        </h2>
+      {/* Modal Container */}
+      <div className="relative bg-[#0a0a0a] border border-[#262626] max-w-2xl w-full flex flex-col max-h-[85vh] shadow-2xl">
+        
+        {/* Header */}
+        <div className="bg-[#141414] border-b border-[#262626] px-5 py-3 flex justify-between items-center text-[10px]">
+          <div className="flex items-center gap-2 text-white font-bold tracking-widest">
+            <div className="w-1.5 h-1.5 bg-white" />
+            LEGAL_PROTOCOL
+          </div>
+          <span className="text-[#404040]">GNU_GPL_V3</span>
+        </div>
 
-        <p className="mb-4 text-md leading-relaxed">
-          By using this application, <span className="font-bold">you agree to the following terms:</span>
-        </p>
+        {/* Content */}
+        <div className="flex-1 overflow-y-auto p-6 md:p-10 bg-[radial-gradient(#1a1a1a_1px,transparent_1px)] [background-size:20px_20px]">
+          <h2 className="text-2xl text-white mb-8 tracking-tighter uppercase">
+            TERMS_OF_<span className="bg-white text-black px-1 ml-1">SERVICE</span>
+          </h2>
 
-        <ul className="list-disc list-inside space-y-3 mb-6 text-md leading-relaxed">
-          <li>
-            You are solely responsible for the security and confidentiality of
-            your cryptographic seeds. The App does not have access to, nor the
-            ability to derive, your private keys or wallet credentials due to the
-            mathematical properties of cryptographic key generation.
-          </li>
+          <div className="space-y-6">
+            {TERMS_DATA.map((item) => (
+              <div key={item.id} className="border border-[#262626] p-4 bg-black/50">
+                <div className="flex justify-between text-[10px] mb-2 font-bold uppercase tracking-widest">
+                  <span className="text-white">[{item.label}]</span>
+                  <span className="text-[#404040]">ID_{item.id}</span>
+                </div>
+                <p className="text-[#737373] text-xs leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
 
-          <li>
-            The App does not control, manage, or influence any blockchain
-            networks, including the XRP Ledger (XRPL). We disclaim all
-            responsibility for the operation, availability, or integrity of any
-            blockchain network.
-          </li>
+          <p className="text-[9px] text-[#404040] mt-8 pt-4 border-t border-[#262626] uppercase">
+            Rev: 2026.02.19 // Usage implies acceptance.
+          </p>
+        </div>
 
-          <li>
-            Stablecoins accessed through the App are issued and governed solely
-            by their respective issuers. We do not custody, control, or manage
-            stablecoins on your behalf.
-          </li>
-
-          <li>
-            The App provides access to the XRP Ledger’s built-in decentralized
-            exchange (DEX) strictly as an interface. We do not provide liquidity,
-            market-making, or brokerage services. Liquidity is supplied by other
-            participants on the ledger.
-          </li>
-
-          <li>
-            This software is open source under the GNU GPL v3 license. You are
-            free to inspect, modify, and redistribute the software in accordance
-            with the license terms.
-          </li>
-
-          <li>
-            While best efforts are made to maintain availability and
-            functionality, no guarantees are provided. Service interruptions
-            may occur due to maintenance, external dependencies, network
-            attacks, or events beyond our control. In such cases, you may import
-            your wallet into another compatible DeFi provider.
-          </li>
-        </ul>
-
-        <p className="text-md text-zinc-400 leading-relaxed">
-          If these terms are updated, notice will be provided within the App.
-          Continued use constitutes acceptance of the revised terms.
-        </p>
+        {/* Footer */}
+        <div className="border-t border-[#262626] p-4 flex justify-end">
+          <button
+            onClick={onClose}
+            className="bg-white text-black px-6 py-2 text-[10px] font-bold tracking-widest uppercase hover:invert transition-all"
+          >
+            [ CLOSE]
+          </button>
+        </div>
       </div>
+
+      <style jsx global>{`
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #262626; }
+      `}</style>
     </div>,
     document.body
   );

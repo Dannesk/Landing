@@ -4,6 +4,7 @@ import React from "react";
 import HeroSection from "./components/hero";
 import Lightning from "./components/lightening";
 import Rust from "./components/rust";
+import Fee from "./components/fee";
 import Cstorage from "./components/cstorage";
 import Footer from "./components/footer";
 
@@ -17,6 +18,7 @@ const App = () => {
         <HeroSection />
         <Lightning />
         <Rust />
+        <Fee /> 
         <Cstorage />
         <Footer />
       </div>
