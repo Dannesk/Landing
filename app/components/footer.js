@@ -19,7 +19,7 @@ const Footer = () => {
               DANNESK
             </h2>
             <span className="text-[10px] bg-[#141414] border border-[#262626] px-1.5 py-0.5 text-[#737373]">
-              v0.2.0-stable
+              v0.2.0-beta
             </span>
           </div>
           <p className="text-[10px] text-[#404040] leading-tight uppercase tracking-widest">

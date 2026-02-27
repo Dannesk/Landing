@@ -47,32 +47,21 @@ const ReleaseModal = ({ isOpen, onClose }) => {
           transition={{ duration: 0.15, ease: "linear" }}
           className="relative bg-[#0a0a0a] border border-[#262626] max-w-4xl w-full text-[#737373] font-mono z-10 overflow-hidden flex flex-col max-h-[90vh] shadow-2xl"
         >
-          {/* Header */}
-          <div className="bg-[#141414] border-b border-[#262626] px-5 py-3 flex justify-between items-center shrink-0">
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 bg-[#10b981]" />
-              <span className="text-[10px] text-[#a3a3a3] tracking-[2px] font-bold uppercase">
-                VERSION_v0.2.0_BETA
-              </span>
-            </div>
-          </div>
-
+      
           {/* Scrollable Content */}
           <div className="p-6 md:p-10 overflow-y-auto custom-scrollbar">
             <div className="mb-8 border-l-2 border-white pl-6">
-              <h2 className="text-xl font-mono text-white tracking-tighter uppercase mb-1">
+              <h2 className="text-lg font-mono text-white tracking-tighter uppercase mb-1">
                 BUILD <span className="bg-white text-black px-1.5 ml-1">v0.2.0</span>
               </h2>
-              <p className="text-[10px] text-[#525252] uppercase tracking-[0.2em]">
-                CURRENT_STATUS
-              </p>
+           
             </div>
 
             <div className="border border-[#1a1a1a] overflow-hidden">
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="bg-[#141414] border-b border-[#262626] text-[#737373] uppercase text-[10px] font-bold tracking-[0.2em]">
-                    <th className="py-4 px-4">MODULE_ID</th>
+                    <th className="py-4 px-4">ROADMAP</th>
                     <th className="py-4 px-4 border-l border-[#262626]">STATUS</th>
                     <th className="py-4 px-4 border-l border-[#262626]">BUILD_NOTES</th>
                   </tr>
@@ -82,27 +71,27 @@ const ReleaseModal = ({ isOpen, onClose }) => {
                     { 
                         feature: "BTC & XRPL WALLETS", 
                         status: "ACTIVE", 
-                        notes: "Full support for importing, creating, sending, and receiving on both chains." 
+                        notes: "Import, Create, Send and Receive for both chains" 
                     },
                     { 
                         feature: "KEY MANAGEMENT", 
                         status: "ACTIVE", 
-                        notes: "Choice between hot or cold state. Cold state achieved via client-side key deletion." 
+                        notes: "Choose whether key remains encrypted on device" 
                     },
                     { 
                         feature: "TOKENS", 
                         status: "ACTIVE", 
-                        notes: "Establish Trustlines for RLUSD and EUROP Stablecoins natively." 
+                        notes: "RLUSD and EUROP supported" 
                     },
                     { 
                         feature: "XRPL NATIVE DEX", 
                         status: "ACTIVE", 
-                        notes: "Ledger-based atomic swaps for XRP & Stablecoins. Trades cost < ~0.00001 XRP." 
+                        notes: "Ledger-based atomic swaps"
                     },
                     { 
                         feature: "DESKTOP BUILDS", 
-                        status: "BETA", 
-                        notes: "Linux and Windows supported. MacOS builds are currently in the queue." 
+                        status: "ACTIVE", 
+                        notes: "Linux and Windows Supported" 
                     },
                   ].map((row, i) => (
                     <tr key={i} className="bg-transparent hover:bg-white/[0.01]">
@@ -123,9 +112,10 @@ const ReleaseModal = ({ isOpen, onClose }) => {
                   
                   {/* In Development */}
                   {[
-                    { feature: "BTC COLLATERAL", status: "IN_WORK", notes: "Implementing logic to utilize Bitcoin as collateral for lending." },
-                    { feature: "BTC RBF SUPPORT", status: "IN_WORK", notes: "Replace-By-Fee (RBF) functionality for unconfirmed transactions." },
-                    { feature: "MOBILE APP", status: "PENDING", notes: "iOS and Android versions currently under construction." },
+                    { feature: "JPY & SGD", status: "IN_PROGRESS", notes: "Adding more stablecoins" },
+                    { feature: "BTC COLLATERAL", status: "IN_PROGRESS", notes: "Logic for using Bitcoin as Collateral" },
+                    { feature: "BTC RBF SUPPORT", status: "IN_PROGRESS", notes: "Replace-By-Fee (RBF) functionality for Bitcoin" },
+                    { feature: "MOBILE APP", status: "IN_PROGRESS", notes: "iOS and Android versions in development" },
                   ].map((row, i) => (
                     <tr key={i} className="bg-[#0c0c0c]/50 text-[#404040] italic">
                       <td className="py-5 px-4 uppercase tracking-tight">{row.feature}</td>
@@ -152,7 +142,7 @@ const ReleaseModal = ({ isOpen, onClose }) => {
               onClick={onClose}
               className="border border-[#404040] text-white px-8 py-2 text-[11px] font-bold tracking-[2px] uppercase hover:bg-white hover:text-black transition-all"
             >
-              [ EXIT_MODAL ]
+              EXIT
             </button>
           </div>
         </motion.div>

@@ -43,7 +43,6 @@ const FaqModal = ({ isOpen, onClose }) => {
                 TECHNICAL_SPECIFICATIONS_V1
               </span>
             </div>
-            <span className="text-[9px] text-[#404040] hidden sm:block">STATUS: ON-CHAIN_VERIFIED</span>
           </div>
 
           {/* Scrollable Content */}
@@ -126,12 +125,12 @@ const FaqModal = ({ isOpen, onClose }) => {
 
           {/* Sticky Footer */}
           <div className="border-t border-[#262626] p-4 bg-[#0a0a0a] flex justify-between items-center shrink-0">
-            <span className="text-[9px] text-[#262626] ml-2">DOCUMENT_REF: 884-X-BLOCK_CHAIN</span>
+            <span className="text-[9px] text-[#262626] ml-2">BLOCK_CHAIN_DATA</span>
             <button
               onClick={onClose}
               className="border border-[#404040] text-white px-8 py-2 text-[11px] font-bold tracking-[2px] uppercase hover:bg-white hover:text-black transition-all"
             >
-              [ EXIT_FAQ]
+              EXIT
             </button>
           </div>
         </motion.div>
