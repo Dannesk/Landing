@@ -104,7 +104,7 @@ const HeroSection = () => {
    
 
 
-        {/* Right: Kinetic SVG - HIDDEN ON MOBILE/TABLET */}
+             {/* Right: Kinetic SVG - HIDDEN ON MOBILE/TABLET */}
         <div className="hidden lg:flex lg:col-span-5 justify-center items-center">
           <div className="relative group">
             <svg width="400" height="400" viewBox="0 0 200 200" className="opacity-80 group-hover:opacity-100 transition-opacity duration-700">
@@ -115,20 +115,22 @@ const HeroSection = () => {
               </defs>
               <rect width="200" height="200" fill="url(#grid)" />
               
-          <polygon
+              <polygon
     points="100,32 160,65 160,135 100,168 40,135 40,65"
-    stroke="#ECFEFF"
-    strokeWidth="2"
-    fill="#222222"
+    stroke="#737373"
+    strokeWidth="1.5"
+    fill="#141414" 
   />
+  
   <polygon
     points="100,60 140,100 100,140 60,100"
-    stroke="#ECFEFF"
+    stroke="#737373"
     strokeWidth="1.5"
-    fill="#111111"
+    fill="#0A0A0A"
     className="animate-pulse"
   />
-  <g stroke="#ECFEFF" strokeWidth="1">
+  
+  <g stroke="#FFFFFF" strokeWidth="1.2" strokeLinecap="round" strokeOpacity="0.5">
     <line x1="100" y1="32" x2="100" y2="60" />
     <line x1="160" y1="65" x2="140" y2="100" />
     <line x1="160" y1="135" x2="140" y2="100" />
