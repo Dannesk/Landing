@@ -4,11 +4,13 @@ import React, { useState } from "react";
 import { FaWindows, FaGithub, FaLinux } from "react-icons/fa";
 import FaqModal from "../components/faq"; 
 import ReleaseModal from "../components/releasemodal";
+import WindowsReadmeModal from "./windowsdownloadmodal";
 
 
 const HeroSection = () => {
   const [isReleaseOpen, setIsReleaseOpen] = useState(false);
   const [isFaqOpen, setIsFaqOpen] = useState(false);
+  const [showReadme, setShowReadme] = useState(false);
 
   const platforms = [
     { name: "Windows", icon: <FaWindows size={24} />, url: "https://download.dannesk.com/Dannesk_0.2.0.exe" },
@@ -65,42 +67,64 @@ const HeroSection = () => {
   {/* Single Line Platform Rows */}
   <div className="border-l border-[#262626] pl-6 space-y-4">
     
-    {/* Windows Row */}
-    <div className="flex items-center flex-wrap gap-x-6 gap-y-2">
-      <div className="flex items-center gap-3">
-        <FaWindows size={16} className="text-[#737373]" />
-        <a 
-          href="https://download.dannesk.com/Dannesk_0.2.0.exe" 
-          className="text-[11px] text-white underline decoration-white/30 underline-offset-4 hover:decoration-white transition-colors uppercase tracking-tighter font-bold"
-        >
-          Windows
-        </a>
-      </div>
-      <div className="flex gap-4 items-center">
-        <a href="https://github.com/Dannesk/Dannesk/blob/main/dannesk.cert.pem" className="text-[10px] text-[#737373] hover:text-white transition-colors uppercase tracking-tighter">Certificate</a>
-        <a href="https://github.com/Dannesk/Dannesk/blob/main/dannesk.pub" className="text-[10px] text-[#737373] hover:text-white transition-colors uppercase tracking-tighter">Public_Key</a>
-      </div>
-    </div>
+   {/* Windows Row */}
+<div className="flex items-center flex-wrap gap-x-6 gap-y-2">
+  <div className="flex items-center gap-3">
+    <FaWindows size={16} className="text-[#737373]" />
+    <a 
+      href="https://download.dannesk.com/Dannesk_0.2.0.exe" 
+      className="text-[11px] text-white underline decoration-white/30 underline-offset-4 hover:decoration-white transition-colors uppercase tracking-tighter font-bold"
+    >
+      Download
+    </a>
+  </div>
+  <div className="flex gap-4 items-center">
+    <a href="https://github.com/Dannesk/Dannesk/blob/main/dannesk.cert.pem" className="text-[10px] text-[#737373] hover:text-white transition-colors uppercase tracking-tighter">Certificate</a>
+    <a href="https://github.com/Dannesk/Dannesk/blob/main/dannesk.pub" className="text-[10px] text-[#737373] hover:text-white transition-colors uppercase tracking-tighter">Public_Key</a>
+    
+    {/* The New Trigger */}
+    <button 
+      onClick={() => setShowReadme(true)}
+      className="text-[10px] text-[#737373] hover:text-white transition-colors uppercase tracking-tighter"
+    >
+      Read_Me
+    </button>
+  </div>
+</div>
 
-    {/* Linux Row */}
-    <div className="flex items-center flex-wrap gap-x-6 gap-y-2">
-      <div className="flex items-center gap-3">
-        <FaLinux size={16} className="text-[#737373]" />
-        <a 
-          href="https://download.dannesk.com/dannesk_0.2.0_amd64.deb" 
-          className="text-[11px] text-white underline decoration-white/30 underline-offset-4 hover:decoration-white transition-colors uppercase tracking-tighter font-bold"
-        >
-          Linux (deb)
-        </a>
-      </div>
-      <div className="flex gap-4 items-center">
-        <a href="https://github.com/Dannesk/Dannesk/blob/main/SHASUMS256.txt" className="text-[10px] text-[#737373] hover:text-white transition-colors uppercase tracking-tighter">Checksums</a>
-        <a href="https://github.com/Dannesk/Dannesk/blob/main/SHASUMS256.txt.asc" className="text-[10px] text-[#737373] hover:text-white transition-colors uppercase tracking-tighter">Signature</a>
-      </div>
-    </div>
+{/* Linux Row */}
+<div className="flex items-center flex-wrap gap-x-6 gap-y-2">
+  <div className="flex items-center gap-3">
+    <FaLinux size={16} className="text-[#737373]" />
+    <a 
+      href="https://download.dannesk.com/dannesk_0.2.0_amd64.deb" 
+      className="text-[11px] text-white underline decoration-white/30 underline-offset-4 hover:decoration-white transition-colors uppercase tracking-tighter font-bold"
+    >
+      Download
+    </a>
+  </div>
+  
+  <div className="flex gap-4 items-center">
+    <a href="https://github.com/Dannesk/Dannesk/blob/main/SHASUMS256.txt" className="text-[10px] text-[#737373] hover:text-white transition-colors uppercase tracking-tighter">Checksums</a>
+    <a href="https://github.com/Dannesk/Dannesk/blob/main/SHASUMS256.txt.asc" className="text-[10px] text-[#737373] hover:text-white transition-colors uppercase tracking-tighter">Signature</a>
+  </div>
+
+  {/* Distro Cards & Arch Tag */}
+  <div className="flex gap-2 ml-2">
+    {/* Architecture Highlight */}
+    <span className="px-2 py-0.5 bg-[#1a1a1a] border border-blue-500/30 text-[9px] text-[#737373]uppercase font-medium">AMD64 (x86_64)</span>
+    
+    <span className="px-2 py-0.5 bg-[#1a1a1a] border border-blue-500/30 text-[9px] text-[#737373]uppercase font-medium">.deb</span>
 
   </div>
 </div>
+    
+
+  </div>
+  
+</div>
+
+
    
 
 
@@ -157,6 +181,7 @@ const HeroSection = () => {
 
       <FaqModal isOpen={isFaqOpen} onClose={() => setIsFaqOpen(false)} />
       <ReleaseModal isOpen={isReleaseOpen} onClose={() => setIsReleaseOpen(false)} />
+        <WindowsReadmeModal isOpen={showReadme} onClose={() => setShowReadme(false)} />
     </div>
   );
 };
